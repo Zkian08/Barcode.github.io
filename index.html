@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UPC Scanner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #111;
+      color: #fff;
+    }
+
+    header {
+      padding: 10px;
+      text-align: center;
+      background: #222;
+    }
+
+    #reader {
+      width: 100%;
+    }
+
+    .controls {
+      padding: 10px;
+      background: #1b1b1b;
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .add { background: #4CAF50; color: white; }
+    .clear { background: #f44336; color: white; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      color: #000;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .copy { background: #4CAF50; color: white; }
+    .edit { background: #2196F3; color: white; }
+    .delete { background: #f44336; color: white; }
+
+    .status {
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h3>📷 UPC Scanner</h3>
+</header>
+
+<div id="reader"></div>
+
+<div class="status" id="status">Initializing camera...</div>
+
+<div class="controls">
+  <input type="text" id="barcodeInput" placeholder="Manual input">
+  <button class="add" onclick="addBarcode()">Add</button>
+  <button class="clear" onclick="clearAll()">Clear</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>UPC</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
